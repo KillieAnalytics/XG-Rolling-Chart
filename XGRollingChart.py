@@ -46,4 +46,11 @@ if uploaded_file:
       eventsList.append(event)
 
    if st.button("Create Rolling xG"):
-      rolling.create_rolling_xg(matches, most_used_team, home_colour, away_colour, game_split, eventsList, image_file)
+      xGfile = rolling.create_rolling_xg(matches, most_used_team, home_colour, away_colour, game_split, eventsList, image_file)
+      with open(xGfile, "rb") as img:
+         btn = st.download_button(
+            label="Download image",
+            data=img,
+            file_name=xGfile,
+            mime="image/png"
+        )

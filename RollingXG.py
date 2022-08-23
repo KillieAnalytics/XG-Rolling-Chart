@@ -133,4 +133,4 @@ def create_rolling_xg(matches, most_used_team, home_colour, away_colour, game_sp
 
     fn = most_used_team + "RollingXG.png"
     plt.savefig(fn, bbox_inches='tight')
-    return fn
+    return fn, fig

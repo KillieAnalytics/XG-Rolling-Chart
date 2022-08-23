@@ -10,6 +10,7 @@ uploaded_file = st.file_uploader("Choose Wyscout matches xlsx", accept_multiple_
 
 if uploaded_file:
    matches = pd.read_excel(uploaded_file, sheet_name=0)
+   matches = matches.dropna(subset=['Match'])
    most_used_team = matches['Team'].mode().iloc[0]
    st.text("Team chosen: " + most_used_team)
    col1, col2 = st.columns(2)
@@ -46,7 +47,8 @@ if uploaded_file:
       eventsList.append(event)
 
    if st.button("Create Rolling xG"):
-      xGfile = rolling.create_rolling_xg(matches, most_used_team, home_colour, away_colour, game_split, eventsList, image_file)
+      xGfile, fig = rolling.create_rolling_xg(matches, most_used_team, home_colour, away_colour, game_split, eventsList, image_file)
+      st.pyplot(fig)
       with open(xGfile, "rb") as img:
          btn = st.download_button(
             label="Download image",

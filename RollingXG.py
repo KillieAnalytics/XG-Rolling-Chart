@@ -23,8 +23,8 @@ def create_rolling_xg(matches, most_used_team, home_colour, away_colour, game_sp
     y_for = y_for.rolling(window = 10, min_periods = 0).mean()
     y_against = y_against.rolling(window = 10, min_periods = 0).mean()
 
-    fig = plt.figure(figsize=(4.5, 2.5), dpi = 300, facecolor = "#252827")
-    ax = plt.subplot(111, facecolor = "#252827")
+    fig = plt.figure(figsize=(4.5, 2.5), dpi = 300, facecolor = "#16003B")
+    ax = plt.subplot(111, facecolor = "#16003B")
 
     # Remove top & right spines and change the color.
     ax.spines[["top", "right"]].set_visible(False)

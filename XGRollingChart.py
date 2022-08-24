@@ -16,10 +16,10 @@ if uploaded_file:
    col1, col2 = st.columns(2)
 
    with col1:
-      home_colour = st.color_picker("Primary Colour")
+      home_colour = st.color_picker("xG Created Colour", value="#F73D92")
 
    with col2:
-      away_colour = st.color_picker("Secondary Colour")
+      away_colour = st.color_picker("xG Conceded Colour", value="#F7EB06")
    
    game_split = st.number_input("GameSplits", min_value=1, value=10)
 
